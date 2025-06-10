@@ -7,12 +7,12 @@ body {
 }
 
 .menuicon-animate {
-	animation: show-disapear 0.35s ease-in-out;
+	animation: show-disapear 0.4s ease-in-out;
 }
 
 @keyframes show-disapear {
 	0%,
-	75% {
+	85% {
 		opacity: 0%;
 	}
 
