@@ -20,7 +20,7 @@ export default function HomeButton({ text = ' ', route = ' ', customStyle = ' ' 
 			</button>
 			<div className="flex w-full justify-center px-6">
 				<hr
-					className={`flex w-0 justify-center border-[1px] border-black transition-all duration-[.25s] ease-in-out md:mr-1 lg:mr-2 ${
+					className={`flex w-0 justify-center border-[1px] border-black transition-all duration-[.27s] ease-in-out md:mr-1 lg:mr-2 ${
 						hoveredOver ? 'w-full opacity-100' : 'w-0 opacity-0'
 					}`}
 				/>
