@@ -14,7 +14,7 @@ import img6 from '../assets/6.jpg';
 import img7 from '../assets/7.jpg';
 import img8 from '../assets/8.JPEG';
 import img9 from '../assets/9.JPEG';
-import img10 from '../assets/10.JPEG';
+import img10 from '../assets/10-light-compression.jpg';
 import img11 from '../assets/11.JPEG';
 import img12 from '../assets/12.JPG';
 import img13 from '../assets/13.JPG';
