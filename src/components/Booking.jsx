@@ -10,6 +10,12 @@ export default function Booking() {
 	const [email, setEmail] = useState('');
 	const [modal, setModal] = useState({ open: false, title: '', message: '', type: '' });
 
+	function encode(data) {
+		return Object.keys(data)
+			.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+			.join('&');
+	}
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -23,35 +29,17 @@ export default function Booking() {
 			return;
 		}
 
-		const formData = {
-			name: name,
-			email: email,
-			sessionType: sessionType,
-			message: message
-		};
-
 		await axios
-			.post('https://formsubmit.co/c345081f8cab7ed8ea2b8717139b2e07', formData, {
-				headers: { 'Content-Type': 'application/json' }
+			.post('/', encode({ 'form-name': 'book', name, email, sessionType, message }), {
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			})
-			.then((res) => {
-				if (res.status === 200) {
-					setModal({
-						open: true,
-						title: 'Message Sent!',
-						message: "Thank you for booking! I'll be in touch soon.",
-						type: 'success'
-					});
-				} else {
-					//here just in case it doesn't read as an error, but it didn't properly send
-					console.log(res);
-					setModal({
-						open: true,
-						title: 'Something Went Wrong',
-						message: 'There was an error sending your message. Please try again later.',
-						type: 'error'
-					});
-				}
+			.then(() => {
+				setModal({
+					open: true,
+					title: 'Message Sent!',
+					message: "Thank you for booking! I'll be in touch soon.",
+					type: 'success'
+				});
 			})
 			.catch((err) => {
 				setModal({
@@ -89,14 +77,18 @@ export default function Booking() {
 			</header>
 
 			<form
+				netlify
 				onSubmit={handleSubmit}
+				name="book"
 				className="mt-10 flex w-5/6 flex-col rounded-md bg-amber-100/100 px-10 py-10 shadow-2xl sm:mt-20 sm:w-[500px] md:w-[600px]"
 			>
+				<input type="hidden" name="bot-field" />
 				<label htmlFor="name-input" className={labelStyles}>
 					Name
 				</label>
 				<input
 					id="name-input"
+					name="name"
 					type="text"
 					placeholder="Full Name"
 					required
@@ -110,6 +102,7 @@ export default function Booking() {
 				<input
 					id="email-input"
 					type="email"
+					name="email"
 					placeholder="youremail@example.com"
 					required
 					className={fieldStyles}
@@ -121,6 +114,7 @@ export default function Booking() {
 				</label>
 				<input
 					id="session-type"
+					name="sessionType"
 					type="text"
 					placeholder="Event / Proposal / Session / Other"
 					required
@@ -134,6 +128,7 @@ export default function Booking() {
 				<textarea
 					id="message-input"
 					placeholder="Ideal times, location, and any other details to make this the perfect shoot!"
+					name="message"
 					required
 					className={fieldStyles}
 					rows={6}
