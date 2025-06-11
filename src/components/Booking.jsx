@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import FormStatusModal from './modals/FormStatusModal';
+import axios from 'axios';
 
 export default function Booking() {
 	const [name, setName] = useState('');
@@ -22,19 +23,45 @@ export default function Booking() {
 			return;
 		}
 
-		setModal({
-			open: true,
-			title: 'Message Sent!',
-			message: "Thank you for booking! I'll be in touch soon.",
-			type: 'success'
-		});
+		const formData = {
+			name: name,
+			email: email,
+			sessionType: sessionType,
+			message: message
+		};
 
-		// setModal({
-		// 	open: true,
-		// 	title: 'Something Went Wrong',
-		// 	message: 'There was an error sending your message. Please try again later.',
-		// 	type: 'error'
-		// });
+		await axios
+			.post('https://formsubmit.co/c345081f8cab7ed8ea2b8717139b2e07', formData, {
+				headers: { 'Content-Type': 'application/json' }
+			})
+			.then((res) => {
+				if (res.status === 200) {
+					setModal({
+						open: true,
+						title: 'Message Sent!',
+						message: "Thank you for booking! I'll be in touch soon.",
+						type: 'success'
+					});
+				} else {
+					//here just in case it doesn't read as an error, but it didn't properly send
+					console.log(res);
+					setModal({
+						open: true,
+						title: 'Something Went Wrong',
+						message: 'There was an error sending your message. Please try again later.',
+						type: 'error'
+					});
+				}
+			})
+			.catch((err) => {
+				setModal({
+					open: true,
+					title: 'Something Went Wrong',
+					message: 'There was an error sending your message. Please try again later.',
+					type: 'error'
+				});
+				console.error(err);
+			});
 	};
 
 	const fieldStyles = clsx(
@@ -63,7 +90,7 @@ export default function Booking() {
 
 			<form
 				onSubmit={handleSubmit}
-				className="mt-10 flex w-5/6 flex-col rounded-md bg-amber-100/100 px-10 py-10 shadow-sm sm:mt-20 sm:w-[500px]"
+				className="mt-10 flex w-5/6 flex-col rounded-md bg-amber-100/100 px-10 py-10 shadow-2xl sm:mt-20 sm:w-[500px] md:w-[600px]"
 			>
 				<label htmlFor="name-input" className={labelStyles}>
 					Name
@@ -71,7 +98,7 @@ export default function Booking() {
 				<input
 					id="name-input"
 					type="text"
-					placeholder="First Last"
+					placeholder="Full Name"
 					required
 					className={fieldStyles}
 					onChange={(e) => setName(e.target.value)}
