@@ -27,11 +27,11 @@ export default function Navbar({ isOpen, setIsOpen }) {
 			) : null}
 
 			<nav
-				className={`fixed right-0 top-0 h-screen w-[75%] transform overflow-y-auto bg-gray-900 pl-6 pt-2 text-white sm:w-[350px] md:w-[400px] lg:w-[400px] ${
+				className={`fixed right-0 top-0 h-screen w-[75%] transform overflow-y-auto bg-gray-900 pl-6 pt-2 text-white sm:w-[350px] md:w-[400px] ${
 					!isOpen ? 'translate-x-full' : '-translate-x-0'
-				} z-40 transition-transform ease-in-out`}
+				} z-40 transition-transform duration-500 ease-in-out`}
 			>
-				<h1 className="mb-10 mt-2 cursor-default select-none text-4xl font-bold font-inter">
+				<h1 className="mb-9 mt-2 cursor-default select-none text-4xl font-bold font-inter">
 					Pages
 				</h1>
 
@@ -71,7 +71,7 @@ export default function Navbar({ isOpen, setIsOpen }) {
 						<a
 							className="-ml-4 inline-flex w-[50px] transform items-center justify-start pl-4 duration-200 ease-in-out hover:text-pink-500"
 							target="_blank"
-							href="https://www.instagram.com/"
+							href="https://www.instagram.com/jair.m3/"
 						>
 							<InstagramIcon className="w-[25px]" />
 						</a>
