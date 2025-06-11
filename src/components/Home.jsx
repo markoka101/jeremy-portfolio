@@ -1,9 +1,10 @@
 import HomeButton from './HomeButton';
 import CustomHorizontalDivider from './CustomHorizontalDivider';
 import { HomePagePictures } from '../data/PictureData';
+import clsx from 'clsx';
 
 export default function Home() {
-	const buttonCustomStyles = ' md:my-0  md:py-0  font-inter font-semibold ';
+	const buttonCustomStyles = clsx('font-semibold font-inter md:my-0 md:py-0');
 	const hpp = HomePagePictures;
 
 	return (
@@ -52,7 +53,6 @@ export default function Home() {
 					numberOfLines={3}
 					gapBetweenLine={1}
 					lineThicknessGrowth={0.2}
-					customStyles="min-w-screen "
 				/>
 
 				<div className="flex flex-1 items-center justify-center bg-[url('../src/assets/generated-image-95.webp')] bg-center">
