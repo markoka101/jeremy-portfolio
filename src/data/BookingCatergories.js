@@ -1,20 +1,20 @@
 export const Bookings = [
 	{
 		type: 'Session',
-		desc: 'Basic Description Of This',
-		included: ['featues', 'photo limit', 'time limit'],
-		price: '$1,000,000,000,000.00'
+		desc: 'Classic photo shoot in a studio or outdoors',
+		included: ['Location of choice', '1 hour limit', '30 picture limit'],
+		price: '$100.00'
 	},
 	{
 		type: 'Event',
-		desc: 'Basic Description Of This',
-		included: ['featues', 'photo limit', 'time limit'],
-		price: '$2,000,000,000,000.00'
+		desc: 'Relive the event',
+		included: ['Shot at location', '4 hour limit', '40 picture limit'],
+		price: '$250.00'
 	},
 	{
 		type: 'Proposal',
-		desc: 'Basic Description Of This',
-		included: ['featues', 'photo limit', 'time limit'],
-		price: '$27.56'
+		desc: 'Capture the moment',
+		included: ['Surprise Shoot', '2 hour limit', '30 picture limit'],
+		price: '$150.00'
 	}
 ];
