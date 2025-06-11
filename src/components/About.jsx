@@ -1,4 +1,5 @@
 import CustomHorizontalDivider from './CustomHorizontalDivider';
+import jeremyPic from '../assets/jeremy-pic.jpg';
 export default function About() {
 	return (
 		<section
@@ -33,7 +34,7 @@ export default function About() {
 			<aside className="my-auto mt-[11.2rem] hidden h-full w-1/2 justify-center pr-20 lg:flex">
 				<div className="aspect-[2/3] w-96 outline-double outline-4 outline-offset-2 outline-white">
 					<img
-						src="../src/assets/jeremy-pic.jpg"
+						src={jeremyPic}
 						alt="Portrait of Jeremy Messina"
 						className="h-full w-full object-cover"
 					/>
