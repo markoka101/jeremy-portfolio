@@ -1,0 +1,28 @@
+{
+	"short_name": "Jeremy Messina",
+	"name": "Jeremy Messina Photography",
+	"description": "Jeremy Messina's portfolio website showcasing his work.",
+	"icons": [
+		{
+			"src": "favicon.ico",
+			"sizes": "64x64",
+			"type": "image/x-icon"
+		},
+		{
+			"src": "jeremy-messina-logo-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "jeremy-messina-logo-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff",
+	"orientation": "portrait"
+}
