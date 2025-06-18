@@ -1,4 +1,6 @@
-export const Bookings = [
+import type { BookingCategory } from '../types/booking-category';
+
+export const Bookings: BookingCategory[] = [
 	{
 		type: 'Session',
 		desc: 'Classic photo shoot in a studio or outdoors',

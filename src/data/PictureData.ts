@@ -19,41 +19,43 @@ import img11 from '../assets/11.JPEG';
 import img12 from '../assets/12.JPG';
 import img13 from '../assets/13.JPG';
 
-export const HomePagePictures = [
+import type { PictureProp } from '../types/picture';
+
+export const HomePagePictures: ReadonlyArray<PictureProp> = [
 	{
-		Path: aylinSunset,
+		path: aylinSunset,
 		alt: 'Portrait in front of sunset',
 		ratio: 'aspect-[1067/1600]'
 	},
 	{
-		Path: markCloseupGuitar,
+		path: markCloseupGuitar,
 		alt: 'Picture of me (the web developer) shredding on my ESP LTD-EC1000 with EMG 81 80 using Daddario 52-10 gauge strings ;)',
 		ratio: 'aspect-[4/5]'
 	},
 	{
-		Path: loungin,
+		path: loungin,
 		alt: 'Man lounging in chair',
 		ratio: 'aspect-[1051/1600]'
 	},
 	{
-		Path: carMeetupHonda,
+		path: carMeetupHonda,
 		alt: 'Picture of car at an event',
 		ratio: 'aspect-[111/128]'
 	}
 ];
 
-export const PortfolioPagePictures = [
-	{ Path: img1, alt: 'Shoot in studio leaning on wall', ratio: 'aspect-[2/3]' },
-	{ Path: img2, alt: 'Outdoor sunset photo shoot', ratio: 'aspect-[1067/1600]' },
-	{ Path: img3, alt: 'Honda car meetup even photo shoot', ratio: 'aspect-[111/128]' },
-	{ Path: img4, alt: 'Wedding Photo Shoot', ratio: 'aspect-[2249/3200]' },
-	{ Path: img5, alt: 'Bride and groom wedding photos', ratio: 'aspect-[1067/1600]' },
-	{ Path: img6, alt: 'Bride and groom wedding kiss', ratio: 'aspect-[1600/1067]' },
-	{ Path: img7, alt: 'Indoor photo shoot', ratio: 'aspect-[1067/1600]' },
-	{ Path: img8, alt: 'Picture of car from fron in car meet', ratio: 'aspect-[2717/3200]' },
-	{ Path: img9, alt: 'Outdoor photo session', ratio: 'aspect-[1067/1600]' },
-	{ Path: img10, alt: 'Session musician playing guitar', ratio: 'aspect-[663/994]' },
-	{ Path: img11, alt: 'Studio session pointing at camera', ratio: 'aspect-[663/994]' },
-	{ Path: img12, alt: 'Photo shoot with pet', ratio: 'aspect-[663/994]' },
-	{ Path: img13, alt: 'Outdoor city photo shoot', ratio: 'aspect-[4/5]' }
+export const PortfolioPagePictures: ReadonlyArray<PictureProp> = [
+	{ path: img1, alt: 'Shoot in studio leaning on wall', ratio: 'aspect-[2/3]' },
+	{ path: img2, alt: 'Outdoor sunset photo shoot', ratio: 'aspect-[1067/1600]' },
+	{ path: img3, alt: 'Honda car meetup even photo shoot', ratio: 'aspect-[111/128]' },
+	{ path: img4, alt: 'Wedding Photo Shoot', ratio: 'aspect-[2249/3200]' },
+	{ path: img5, alt: 'Bride and groom wedding photos', ratio: 'aspect-[1067/1600]' },
+	{ path: img6, alt: 'Bride and groom wedding kiss', ratio: 'aspect-[1600/1067]' },
+	{ path: img7, alt: 'Indoor photo shoot', ratio: 'aspect-[1067/1600]' },
+	{ path: img8, alt: 'Picture of car from fron in car meet', ratio: 'aspect-[2717/3200]' },
+	{ path: img9, alt: 'Outdoor photo session', ratio: 'aspect-[1067/1600]' },
+	{ path: img10, alt: 'Session musician playing guitar', ratio: 'aspect-[663/994]' },
+	{ path: img11, alt: 'Studio session pointing at camera', ratio: 'aspect-[663/994]' },
+	{ path: img12, alt: 'Photo shoot with pet', ratio: 'aspect-[663/994]' },
+	{ path: img13, alt: 'Outdoor city photo shoot', ratio: 'aspect-[4/5]' }
 ];
