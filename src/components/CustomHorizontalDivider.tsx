@@ -1,4 +1,15 @@
 import { twMerge } from 'tailwind-merge';
+
+type CustomHorizontalDividerProps = Readonly<{
+	numberOfLines?: number;
+	baseThickness?: number;
+	gapBetweenLine?: number;
+	lineThicknessGrowth?: number;
+	customStyles?: string;
+	lineColor?: string;
+	lineWidth?: string;
+}>;
+
 export default function CustomHorizontalDivider({
 	numberOfLines = 3,
 	baseThickness = 2,
@@ -7,9 +18,9 @@ export default function CustomHorizontalDivider({
 	customStyles = '',
 	lineColor = 'bg-black',
 	lineWidth = 'w-full'
-}) {
+}: CustomHorizontalDividerProps) {
 	return (
-		<div className={twMerge(`${customStyles}`, `flex flex-col`)}>
+		<div className={twMerge(`flex flex-col`, customStyles)}>
 			{Array.from({ length: numberOfLines }).map((_, i) => (
 				<div
 					key={i}
