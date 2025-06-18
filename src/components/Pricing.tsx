@@ -4,7 +4,6 @@ import ListItemIcon from './icons/ListItemIcon';
 import { Helmet } from 'react-helmet-async';
 
 export default function Pricing() {
-	const book = Bookings;
 	return (
 		<>
 			<Helmet>
@@ -26,7 +25,7 @@ export default function Pricing() {
 				</header>
 
 				<div className="mx-4 mt-10 flex w-full flex-wrap justify-center bg-sky-950 pb-10 md:mt-20">
-					{book.map((item) => {
+					{Bookings.map((item) => {
 						return (
 							<article
 								key={item.type}
