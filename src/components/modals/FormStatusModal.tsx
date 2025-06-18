@@ -1,6 +1,19 @@
 import clsx from 'clsx';
 
-export default function FormStatusModal({ open, onClose, title, message, type }) {
+type FormStatusModalProps = Readonly<{
+	open: boolean;
+	onClose: () => void;
+	title: string;
+	message: string;
+	type: 'error' | 'success' | 'warning';
+}>;
+export default function FormStatusModal({
+	open,
+	onClose,
+	title,
+	message,
+	type
+}: FormStatusModalProps) {
 	if (!open) return null;
 	return (
 		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
