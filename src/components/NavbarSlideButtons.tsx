@@ -1,7 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
+import { RouteButtonProps } from '../types/route-button';
 
-export default function NavbarSlideButtons({ text = ' ', route = ' ', customStyle = ' ' }) {
+export default function NavbarSlideButtons({
+	text = ' ',
+	route = ' ',
+	customStyle = ' '
+}: RouteButtonProps) {
 	const navigate = useNavigate();
 	return (
 		<button

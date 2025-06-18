@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
+import { RouteButtonProps } from '../types/route-button';
 
-export default function HomeButton({ text = ' ', route = ' ', customStyle = ' ' }) {
+export default function HomeButton({
+	text = ' ',
+	route = ' ',
+	customStyle = ' '
+}: RouteButtonProps) {
 	const navigate = useNavigate();
 	const [hoveredOver, setHoveredOver] = useState(false);
 	return (
@@ -12,8 +17,8 @@ export default function HomeButton({ text = ' ', route = ' ', customStyle = ' ' 
 				onMouseEnter={() => setHoveredOver(true)}
 				onMouseLeave={() => setHoveredOver(false)}
 				className={twMerge(
-					`${customStyle}`,
-					`my-1 inline-flex justify-center border-[1px] border-transparent px-6 py-2 text-lg focus:outline-none md:mr-1 lg:mr-2`
+					`my-1 inline-flex justify-center border-[1px] border-transparent px-6 py-2 text-lg focus:outline-none md:mr-1 lg:mr-2`,
+					customStyle
 				)}
 			>
 				{`${text}`}
