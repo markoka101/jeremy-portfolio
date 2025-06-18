@@ -77,8 +77,8 @@ export default function Home() {
 								className={`${hpp[0].ratio} col-start-1 flex w-60 items-center justify-center bg-gray-900 lg:col-start-2`}
 							>
 								<img
-									src={hpp[0].Path}
-									alt={hpp[0].Path}
+									src={hpp[0].path}
+									alt={hpp[0].path}
 									className="h-full w-full object-contain ring-2 ring-gray-400"
 								/>
 							</div>
@@ -86,7 +86,7 @@ export default function Home() {
 								className={`${hpp[1].ratio} col-start-6 row-start-2 flex w-56 items-center justify-center bg-gray-700 lg:col-start-5`}
 							>
 								<img
-									src={hpp[1].Path}
+									src={hpp[1].path}
 									alt={hpp[1].alt}
 									className="h-full w-full object-contain ring-2 ring-gray-400"
 								/>
@@ -95,7 +95,7 @@ export default function Home() {
 								className={`${hpp[3].ratio} col-start-8 mt-10 hidden w-60 items-center justify-center bg-gray-900 lg:flex`}
 							>
 								<img
-									src={hpp[3].Path}
+									src={hpp[3].path}
 									alt={hpp[3].alt}
 									className="h-full w-full object-contain ring-2 ring-gray-400"
 								/>
@@ -104,7 +104,7 @@ export default function Home() {
 								className={`${hpp[2].ratio} col-start-11 row-start-2 -mt-24 hidden w-60 items-center justify-center bg-gray-900 2xl:flex`}
 							>
 								<img
-									src={hpp[2].Path}
+									src={hpp[2].path}
 									alt={hpp[2].alt}
 									className="h-full w-full object-contain ring-2 ring-gray-400"
 								/>

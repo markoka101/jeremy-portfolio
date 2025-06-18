@@ -2,7 +2,6 @@ import { PortfolioPagePictures } from '../data/PictureData';
 import { Helmet } from 'react-helmet-async';
 
 export default function Portfolio() {
-	const pics = PortfolioPagePictures;
 	return (
 		<>
 			<Helmet>
@@ -25,14 +24,14 @@ export default function Portfolio() {
 					<p>Scroll down to see some of my work</p>
 				</header>
 				<div className="flex w-full flex-wrap justify-center px-10 md:justify-between md:px-[70px] lg:px-[100px] 2xl:px-[220px]">
-					{pics.map((p) => {
+					{PortfolioPagePictures.map((p) => {
 						return (
 							<article
 								key={p.alt}
 								className={`${p.ratio} mx-auto my-10 flex w-5/6 items-center justify-center sm:w-64 md:mx-3 md:w-72 lg:w-80 2xl:w-[21.5rem]`}
 							>
 								<img
-									src={p.Path}
+									src={p.path}
 									alt={p.alt}
 									loading="lazy"
 									className="object-contain ring-2 ring-gray-300"
