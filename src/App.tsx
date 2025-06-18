@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 
 export default function App() {
 	const location = useLocation();
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	return (
 		<main className="min-w-screen relative flex min-h-screen flex-col">
