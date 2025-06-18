@@ -9,6 +9,7 @@ export default function Footer() {
 				className="mr-5 inline-flex w-[50px] transform items-center justify-start text-white duration-200 ease-in-out hover:text-pink-500"
 				target="_blank"
 				href="https://www.instagram.com/jair.m3/"
+				rel="noopener noreferrer"
 			>
 				<InstagramIcon className="w-[25px]" />
 			</a>
