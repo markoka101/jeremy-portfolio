@@ -1,23 +1,24 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import FormStatusModal from './modals/FormStatusModal';
 import { Helmet } from 'react-helmet-async';
-import axios from 'axios';
+import { submitBooking } from '../api/booking';
+
+interface ModalState {
+	open: boolean;
+	title: string;
+	message: string;
+	type: string;
+}
 
 export default function Booking() {
-	const [name, setName] = useState('');
-	const [sessionType, setSessionType] = useState('');
-	const [message, setMessage] = useState('');
-	const [email, setEmail] = useState('');
-	const [modal, setModal] = useState({ open: false, title: '', message: '', type: '' });
+	const [name, setName] = useState<string>('');
+	const [sessionType, setSessionType] = useState<string>('');
+	const [message, setMessage] = useState<string>('');
+	const [email, setEmail] = useState<string>('');
+	const [modal, setModal] = useState<ModalState>({ open: false, title: '', message: '', type: '' });
 
-	function encode(data) {
-		return Object.keys(data)
-			.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-			.join('&');
-	}
-
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (!name.trim() || !email.trim() || !sessionType.trim() || !message.trim()) {
@@ -30,27 +31,23 @@ export default function Booking() {
 			return;
 		}
 
-		await axios
-			.post('/', encode({ 'form-name': 'book', name, email, sessionType, message }), {
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-			})
-			.then(() => {
-				setModal({
-					open: true,
-					title: 'Message Sent!',
-					message: "Thank you for booking! I'll be in touch soon.",
-					type: 'success'
-				});
-			})
-			.catch((err) => {
-				setModal({
-					open: true,
-					title: 'Something Went Wrong',
-					message: 'There was an error sending your message. Please try again later.',
-					type: 'error'
-				});
-				console.error(err);
+		try {
+			await submitBooking({ name, email, sessionType, message });
+			setModal({
+				open: true,
+				title: 'Message Sent!',
+				message: "Thank you for booking! I'll be in touch soon.",
+				type: 'success'
 			});
+		} catch (err) {
+			setModal({
+				open: true,
+				title: 'Something Went Wrong',
+				message: 'There was an error sending your message. Please try again later.',
+				type: 'error'
+			});
+			console.error(err);
+		}
 	};
 
 	const fieldStyles = clsx(
@@ -93,7 +90,7 @@ export default function Booking() {
 				</header>
 
 				<form
-					netlify
+					data-netlify="true"
 					onSubmit={handleSubmit}
 					name="book"
 					className="mt-10 flex w-5/6 flex-col rounded-md bg-amber-100/100 px-10 py-10 shadow-2xl sm:mt-20 sm:w-[500px] md:w-[600px]"
@@ -109,7 +106,7 @@ export default function Booking() {
 						placeholder="Full Name"
 						required
 						className={fieldStyles}
-						onChange={(e) => setName(e.target.value)}
+						onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
 					/>
 
 					<label htmlFor="email-input" className={labelStyles}>
@@ -122,7 +119,7 @@ export default function Booking() {
 						placeholder="youremail@example.com"
 						required
 						className={fieldStyles}
-						onChange={(e) => setEmail(e.target.value)}
+						onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
 					/>
 
 					<label htmlFor="session-type" className={labelStyles}>
@@ -135,7 +132,7 @@ export default function Booking() {
 						placeholder="Event / Proposal / Session / Other"
 						required
 						className={fieldStyles}
-						onChange={(e) => setSessionType(e.target.value)}
+						onChange={(e: ChangeEvent<HTMLInputElement>) => setSessionType(e.target.value)}
 					/>
 
 					<label htmlFor="message-input" className={labelStyles}>
@@ -148,7 +145,7 @@ export default function Booking() {
 						required
 						className={fieldStyles}
 						rows={6}
-						onChange={(e) => setMessage(e.target.value)}
+						onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
 					/>
 
 					<button type="submit" className="mt-6 rounded bg-slate-900 py-2 font-semibold text-white">
