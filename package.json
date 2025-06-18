@@ -7,7 +7,8 @@
 		"dev": "vite",
 		"build": "vite build",
 		"lint": "eslint .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"type-check": "tsc --noEmit"
 	},
 	"dependencies": {
 		"axios": "^1.9.0",
@@ -21,8 +22,10 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.25.0",
-		"@types/react": "^19.1.2",
-		"@types/react-dom": "^19.1.2",
+		"@types/react": "^19.1.8",
+		"@types/react-dom": "^19.1.6",
+		"@typescript-eslint/eslint-plugin": "^8.34.1",
+		"@typescript-eslint/parser": "^8.34.1",
 		"@vitejs/plugin-react": "^4.4.1",
 		"autoprefixer": "^10.4.21",
 		"eslint": "^9.25.0",
@@ -34,6 +37,8 @@
 		"prettier-plugin-tailwindcss": "^0.0.0-insiders.03dd9a5",
 		"tailwindcss": "^3.4.17",
 		"tailwindcss-font-inter": "^4.0.0",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.34.1",
 		"vite": "^6.3.5",
 		"vite-plugin-sitemap": "^0.8.2"
 	}
