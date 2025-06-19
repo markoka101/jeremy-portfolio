@@ -23,7 +23,7 @@ export default function CustomHorizontalDivider({
 		<div className={twMerge(`flex flex-col`, customStyles)}>
 			{Array.from({ length: numberOfLines }).map((_, i) => (
 				<div
-					key={i}
+					key={i} //NOSONAR
 					className={`${lineColor} ${lineWidth} w-full`}
 					style={{
 						height: `${baseThickness + i * lineThicknessGrowth}px`,
