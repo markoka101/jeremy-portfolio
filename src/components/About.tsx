@@ -19,7 +19,7 @@ export default function About() {
 			</Helmet>
 			<section
 				id="about"
-				className="flex min-h-screen w-full flex-1 flex-col items-start pb-24 md:flex-row"
+				className="flex min-h-screen w-full flex-1 flex-col items-start pb-24 lg:flex-row"
 			>
 				<div className="mt-20 flex w-full flex-col px-10 text-white font-inter sm:px-12 lg:w-1/2">
 					<div className="mb-5 flex flex-col text-7xl font-bold md:flex-row">
@@ -46,8 +46,8 @@ export default function About() {
 					</p>
 				</div>
 
-				<aside className="my-auto mt-[11.2rem] hidden h-full w-1/2 justify-center pr-20 lg:flex">
-					<div className="aspect-[2/3] w-96 outline-double outline-4 outline-offset-2 outline-white">
+				<aside className="my-auto mt-12 flex h-full w-full justify-center lg:mt-[11.2rem] lg:w-1/2 lg:pr-20">
+					<div className="aspect-[2/3] w-80 outline-double outline-4 outline-offset-2 outline-white lg:w-96">
 						<img
 							src={jeremyPic}
 							alt="Portrait of Jeremy Messina"
