@@ -1,4 +1,5 @@
 import { PortfolioPagePictures } from '../data/PictureData';
+import FadeInImage from './FadeInImage';
 import { Helmet } from 'react-helmet-async';
 
 export default function Portfolio() {
@@ -30,10 +31,9 @@ export default function Portfolio() {
 								key={p.alt}
 								className={`${p.ratio} mx-auto my-10 flex w-5/6 items-center justify-center sm:w-64 md:mx-3 md:w-72 lg:w-80 2xl:w-[21.5rem]`}
 							>
-								<img
+								<FadeInImage
 									src={p.path}
 									alt={p.alt}
-									loading="lazy"
 									className="object-contain ring-2 ring-gray-300"
 								/>
 							</article>

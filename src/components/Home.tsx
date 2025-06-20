@@ -2,10 +2,12 @@ import HomeButton from './HomeButton';
 import CustomHorizontalDivider from './CustomHorizontalDivider';
 import { HomePagePictures } from '../data/PictureData';
 import { Helmet } from 'react-helmet-async';
+import FadeInImage from './FadeInImage';
 import clsx from 'clsx';
 
 export default function Home() {
 	const buttonCustomStyles = clsx('font-semibold font-inter md:my-0 md:py-0');
+	const picCustomStyles = clsx('h-full w-full object-contain ring-2 ring-gray-400 duration-300');
 	const hpp = HomePagePictures;
 
 	return (
@@ -76,38 +78,22 @@ export default function Home() {
 							<div
 								className={`${hpp[0].ratio} col-start-1 flex w-60 items-center justify-center bg-gray-900 lg:col-start-2`}
 							>
-								<img
-									src={hpp[0].path}
-									alt={hpp[0].path}
-									className="h-full w-full object-contain ring-2 ring-gray-400"
-								/>
+								<FadeInImage src={hpp[0].path} alt={hpp[0].path} className={picCustomStyles} />
 							</div>
 							<div
 								className={`${hpp[1].ratio} col-start-6 row-start-2 flex w-56 items-center justify-center bg-gray-700 lg:col-start-5`}
 							>
-								<img
-									src={hpp[1].path}
-									alt={hpp[1].alt}
-									className="h-full w-full object-contain ring-2 ring-gray-400"
-								/>
+								<FadeInImage src={hpp[1].path} alt={hpp[1].alt} className={picCustomStyles} />
 							</div>
 							<div
 								className={`${hpp[3].ratio} col-start-8 mt-10 hidden w-60 items-center justify-center bg-gray-900 lg:flex`}
 							>
-								<img
-									src={hpp[3].path}
-									alt={hpp[3].alt}
-									className="h-full w-full object-contain ring-2 ring-gray-400"
-								/>
+								<FadeInImage src={hpp[3].path} alt={hpp[3].alt} className={picCustomStyles} />
 							</div>
 							<div
 								className={`${hpp[2].ratio} col-start-11 row-start-2 -mt-24 hidden w-60 items-center justify-center bg-gray-900 2xl:flex`}
 							>
-								<img
-									src={hpp[2].path}
-									alt={hpp[2].alt}
-									className="h-full w-full object-contain ring-2 ring-gray-400"
-								/>
+								<FadeInImage src={hpp[2].path} alt={hpp[2].alt} className={picCustomStyles} />
 							</div>
 						</div>
 					</div>

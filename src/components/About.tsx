@@ -1,5 +1,6 @@
 import CustomHorizontalDivider from './CustomHorizontalDivider';
 import jeremyPic from '../assets/jeremy-pic.jpg';
+import FadeInImage from './FadeInImage';
 import { Helmet } from 'react-helmet-async';
 
 export default function About() {
@@ -48,7 +49,7 @@ export default function About() {
 
 				<aside className="my-auto mt-12 flex h-full w-full justify-center lg:mt-[11.2rem] lg:w-1/2 lg:pr-20">
 					<div className="aspect-[2/3] w-80 outline-double outline-4 outline-offset-2 outline-white lg:w-96">
-						<img
+						<FadeInImage
 							src={jeremyPic}
 							alt="Portrait of Jeremy Messina"
 							className="h-full w-full object-cover"
