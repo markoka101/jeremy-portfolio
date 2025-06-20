@@ -1,8 +1,8 @@
 // Home Page Images
-import aylinSunset from '../assets/aylin-sunset.JPEG';
 import markCloseupGuitar from '../assets/mark-closeup-guitar.JPG';
-import loungin from '../assets/loungin.JPEG';
-import carMeetupHonda from '../assets/car-meetup-honda.webp';
+import lounginComp from '../assets/loungin.webp';
+import aylinSun from '../assets/aylin-sunset.webp';
+import car from '../assets/car-80-comp.webp';
 
 // Portfolio Images
 import img1 from '../assets/1.JPEG';
@@ -23,22 +23,22 @@ import type { PictureProp } from '../types/picture';
 
 export const HomePagePictures: ReadonlyArray<PictureProp> = [
 	{
-		path: aylinSunset,
+		path: aylinSun,
 		alt: 'Portrait in front of sunset',
 		ratio: 'aspect-[1067/1600]'
 	},
 	{
 		path: markCloseupGuitar,
-		alt: 'Picture of me (the web developer) shredding on my ESP LTD-EC1000 with EMG 81 80 using Daddario 52-10 gauge strings ;)',
+		alt: 'Picture of guitarist',
 		ratio: 'aspect-[4/5]'
 	},
 	{
-		path: loungin,
+		path: lounginComp,
 		alt: 'Man lounging in chair',
 		ratio: 'aspect-[1051/1600]'
 	},
 	{
-		path: carMeetupHonda,
+		path: car,
 		alt: 'Picture of car at an event',
 		ratio: 'aspect-[111/128]'
 	}
