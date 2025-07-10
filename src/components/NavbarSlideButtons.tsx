@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 import { RouteButtonProps } from '../types/route-button';
 
@@ -7,16 +7,15 @@ export default function NavbarSlideButtons({
 	route = ' ',
 	customStyle = ' '
 }: RouteButtonProps) {
-	const navigate = useNavigate();
 	return (
-		<button
-			onClick={() => navigate(route)}
+		<Link
+			to={route}
 			className={twMerge(
+				`inline-flex w-full justify-start px-0 py-1 duration-200 ease-in-out hover:translate-x-2 hover:text-white`,
 				`${customStyle}`,
-				`inline-flex w-full justify-start px-0 py-1 duration-200 ease-in-out hover:translate-x-2 hover:text-white`
 			)}
 		>
 			{`${text}`}
-		</button>
+		</Link>
 	);
 }
