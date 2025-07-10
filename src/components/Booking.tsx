@@ -1,14 +1,14 @@
 import clsx from 'clsx';
-import { useState, ChangeEvent, FormEvent } from 'react';
-import FormStatusModal from './modals/FormStatusModal';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { submitBooking } from '../api/booking';
+import FormStatusModal from './modals/FormStatusModal';
 
 interface ModalState {
 	open: boolean;
 	title: string;
 	message: string;
-	type: string;
+	type: 'error' | 'success' | 'warning';
 }
 
 export default function Booking() {
@@ -16,7 +16,7 @@ export default function Booking() {
 	const [sessionType, setSessionType] = useState<string>('');
 	const [message, setMessage] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
-	const [modal, setModal] = useState<ModalState>({ open: false, title: '', message: '', type: '' });
+	const [modal, setModal] = useState<ModalState>({ open: false, title: '', message: '', type: 'warning' });
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -69,7 +69,7 @@ export default function Booking() {
 					content="Reserve your spot for a photo session, event, or proposal with Jeremy Messina, freelance photographer."
 				/>
 				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://your-domain.com/booking" />
+				<meta property="og:url" content="https://jeremy-photography-portfolio.netlify.app/book-photo-session" />
 			</Helmet>
 			<section id="booking-page" className="flex h-full w-full flex-col items-center pb-10">
 				<FormStatusModal
@@ -105,6 +105,7 @@ export default function Booking() {
 						type="text"
 						placeholder="Full Name"
 						required
+						aria-required='true'
 						className={fieldStyles}
 						onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
 					/>
@@ -118,6 +119,7 @@ export default function Booking() {
 						name="email"
 						placeholder="youremail@example.com"
 						required
+						aria-required='true'
 						className={fieldStyles}
 						onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
 					/>
@@ -131,6 +133,7 @@ export default function Booking() {
 						type="text"
 						placeholder="Event / Proposal / Session / Other"
 						required
+						aria-required='true'
 						className={fieldStyles}
 						onChange={(e: ChangeEvent<HTMLInputElement>) => setSessionType(e.target.value)}
 					/>
@@ -143,12 +146,13 @@ export default function Booking() {
 						placeholder="Ideal times, location, and any other details to make this the perfect shoot!"
 						name="message"
 						required
+						aria-required='true'
 						className={fieldStyles}
 						rows={6}
 						onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
 					/>
 
-					<button type="submit" className="mt-6 rounded bg-slate-900 py-2 font-semibold text-white">
+					<button type="submit" className="mt-6 rounded bg-slate-900 py-2 font-semibold text-white hover:bg-slate-900/90 transition-all duration-150 ease-in-out">
 						Submit
 					</button>
 				</form>
