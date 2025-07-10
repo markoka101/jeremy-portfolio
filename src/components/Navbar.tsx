@@ -1,10 +1,10 @@
-import MenuIcon from './icons/MenuIcon';
-import MenuCollapseIcon from './icons/MenuCollapseIcon';
-import NavbarSlideButtons from './NavbarSlideButtons';
 import clsx from 'clsx';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import InstagramIcon from './icons/InstagramIcon';
-import React from 'react';
+import MenuCollapseIcon from './icons/MenuCollapseIcon';
+import MenuIcon from './icons/MenuIcon';
+import NavbarSlideButtons from './NavbarSlideButtons';
 
 type NavBarProps = Readonly<{
 	isOpen: boolean;
@@ -21,6 +21,7 @@ export default function Navbar({ isOpen, setIsOpen }: NavBarProps) {
 				<button
 					className={`fixed right-0 top-4 z-50 m-4 rounded p-2 sm:right-4`}
 					onClick={() => setIsOpen(true)}
+					aria-label='toggle main navigation menu'
 				>
 					<MenuIcon
 						className={
@@ -36,12 +37,14 @@ export default function Navbar({ isOpen, setIsOpen }: NavBarProps) {
 				className={`fixed right-0 top-0 h-screen w-[75%] transform overflow-y-auto bg-gray-900 pl-6 pt-2 text-white sm:w-[350px] md:w-[400px] ${
 					!isOpen ? 'translate-x-full' : '-translate-x-0'
 				} z-40 transition-transform duration-500 ease-in-out`}
+				 role='navigation'
+				 aria-label='Main Navigation'
 			>
 				<h1 className="mb-9 mt-2 cursor-default select-none text-4xl font-bold font-inter">
 					Pages
 				</h1>
 
-				<ul className="mb-12">
+				<ul className="mb-12" >
 					<li>
 						<NavbarSlideButtons route="/" text="Home" customStyle={buttonCustomStyles} />
 					</li>
@@ -78,6 +81,7 @@ export default function Navbar({ isOpen, setIsOpen }: NavBarProps) {
 							className="-ml-4 inline-flex w-[50px] transform items-center justify-start pl-4 duration-200 ease-in-out hover:text-pink-500"
 							target="_blank"
 							href="https://www.instagram.com/jair.m3/"
+							aria-label="Visit Jeremy's Instagram profile (opens in new tab)"
 						>
 							<InstagramIcon className="w-[25px]" />
 						</a>
